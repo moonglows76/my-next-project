@@ -5,6 +5,7 @@
 // ページごとのスタイルはxxxx.module.cssで管理するとよい
 import styles from "./page.module.css";
 import Image from "next/image";
+// Imageコンポーネントのpriorityはプリロードするかどうかを指定する
 
 import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";

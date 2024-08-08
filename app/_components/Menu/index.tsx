@@ -1,3 +1,6 @@
+// "use client"をつけるとクライアント側でのみ動作するコンポーネントになる
+// つけなければサーバー側で動作する（DOMは使えない）
+// useStateはブラウザのメモリに展開するため、"use client"が必要
 "use client";
 
 import Link from "next/link";

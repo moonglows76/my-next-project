@@ -11,7 +11,7 @@ export default function Footer() {
             <Link href="/news">ニュース</Link>
           </li>
           <li className={styles.item}>
-            <Link href="/member">メンバー</Link>
+            <Link href="/members">メンバー</Link>
           </li>
           <li className={styles.item}>
             <Link href="/contLinkct">お問い合わせ</Link>

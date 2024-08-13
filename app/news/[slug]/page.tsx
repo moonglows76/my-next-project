@@ -5,7 +5,7 @@ import ButtonLink from "@/app/_components/ButtonLink";
 import styles from "./page.module.css";
 
 // SSRのキャッシュを無効化する（デフォルトではキャッシュの保持期限が無限になるため）
-export const revalidate = 0;
+export const revalidate = 60;
 
 type Props = {
   params: {

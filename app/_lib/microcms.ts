@@ -83,6 +83,14 @@ export const getNewsDetail = async (
     endpoint: "news",
     contentId,
     queries,
+
+    // クエリパラメータにdraftKeyが含まれていない場合（draftKey === undefined）は revalidate: 60 （キャッシュを60秒）に設定
+    // クエリパラメータにdraftKeyが含まれている場合（draftKey !== undefined）は revalidate: 0 （キャッシュを無効化）に設定
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      }
+    },
   });
   return detailData;
 }

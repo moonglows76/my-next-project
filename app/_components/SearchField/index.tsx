@@ -4,7 +4,13 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./index.module.css";
 
-export default function SearchField() {
+// useSearchParamsを使用したコンポーネントがレンダリングされると、
+// それを使用した箇所がすべてクライアントコンポーネントになる
+// クライアントコンポーネントは、サーバーコンポーネントに比べてパフォーマンスにでメリトがあるため、
+// Suspenseコンポーネントを使って、useSearchParamsを使用した影響範囲を限定します
+import { Suspense } from "react";
+
+function SearchFieldComponent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -46,4 +52,12 @@ export default function SearchField() {
       </label>
     </form>
   );
+}
+
+export default function SearchField() {
+  return (
+    <Suspense>
+      <SearchFieldComponent />
+    </Suspense>
+  )
 }

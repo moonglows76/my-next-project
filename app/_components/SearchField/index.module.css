@@ -23,6 +23,11 @@
   padding: 0;
   width: 100%;
   appearance: none;
+  /* 
+  モバイルや・タブレットで
+  -webkit-tap-highlight-colorプロパティは、要素がタップされたときに表示されるハイライトの色を指定する
+  https://lighthouse-dev.github.io/css/webkit-tap-highlight-color/
+  */
   -webkit-tap-highlight-color: transparent;
   outline: none;
   background-color: transparent;

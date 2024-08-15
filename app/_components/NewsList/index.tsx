@@ -23,11 +23,13 @@ export default function NewsList({ news }: Props) {
           <Link href={`/news/${article.id}`} className={styles.link}>
             {article.thumbnail ? (
               <Image
-              src={article.thumbnail.url}
-              alt=""
-              className={styles.image}
-              width={article.thumbnail.width}
-              height={article.thumbnail.height}
+                src={article.thumbnail.url}
+                alt=""
+                className={styles.image}
+                width={article.thumbnail.width}
+                height={article.thumbnail.height}
+                priority
+                sizes="10vw"
               />
             ) : (
               <Image
@@ -36,6 +38,8 @@ export default function NewsList({ news }: Props) {
                 alt="No Image"
                 width={1200}
                 height={630}
+                priority
+                sizes="10vw"
               />
             )}
             <dl className={styles.content}>

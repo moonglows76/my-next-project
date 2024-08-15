@@ -108,3 +108,19 @@ export const getCategoryDetail = async (
   return detailData;
 };
 
+export const getAllNewsList = async () => {
+  const listData = await client.getAllContents<News>({
+    endpoint: "news",
+  });
+  return listData;
+};
+
+export const getAllNewsCategoryList = async () => {
+  const listData = await client.getAllContents<Category>({
+    endpoint: "categories",
+  });
+  return listData;
+};
+
+
+

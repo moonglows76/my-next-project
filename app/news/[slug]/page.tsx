@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getNewsDetail } from "@/app/_lib/microcms";
 import Article from "@/app/_components/Article";
@@ -11,6 +12,22 @@ type Props = {
   searchParams: {
     dk?: string;
   };
+}
+
+export async function generateMetadata({ params, searchParams}: Props): Promise<Metadata> {
+  const data = await getNewsDetail(params.slug, {
+    draftKey: searchParams.dk,
+  });
+
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      title: data.title,
+      description: data.description,
+      images: [data?.thumbnail?.url ?? ""],
+    },
+  }
 }
 
 // { params }: Props は親ページから渡されるパラメータのオブジェクトの中のparamsプロパティを取り出している
